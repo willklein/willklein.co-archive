@@ -256,6 +256,10 @@ a:hover{
   color: #000;
 }
 
+.details header ul{
+  color: #444;
+}
+
 .details h3{
   font-size: 9pt;
 }
