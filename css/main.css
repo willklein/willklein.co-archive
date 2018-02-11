@@ -6188,18 +6188,35 @@ h1 > a:hover {
     clear: both;
 }
 
-#overview #profile {
+#profile {
     float: left;
-    width: 300px;
     margin-left: 20px;
 }
 
-#overview #profile h1 img {
-    width: 40px;
-    height: 40px;
+
+#profile > a {
+  float: left;
 }
 
-#overview #profile .subnav i {
+#profile > div {
+  float: left;
+  margin-left: 5px;
+}
+
+#profile img {
+    width: 80px;
+    height: 80px;
+}
+
+#profile h1 {
+  margin: 0 0 0 10px;
+}
+
+#profile .subnav {
+  margin-left: 7px;
+}
+
+#profile .subnav i {
     font-size: 22px;
 }
 
