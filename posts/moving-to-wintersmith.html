@@ -1,15 +1,84 @@
-<!DOCTYPE html><html lang="en" xmlns="http://www.w3.org/1999/html"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Will Klein</title><!--if lt IE 9--><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><link href="/css/main.css" rel="stylesheet"><link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"><link href="//fonts.googleapis.com/css?family=ABeeZee" rel="stylesheet" type="text/css"></head><body data-spy="scroll" data-target=".subhead" data-offset="50"><div class="container"><header id="overview"><div id="profile"><h1><a id="nameLink" href="/"><img id="profileImg" src="/img/profile.jpg" class="img-rounded"> 
-Will Klein</a></h1><div class="subnav"><ul class="nav nav-pills"><li><a target="_blank" href="https://github.com/willklein" title="Github"><i class="fa fa-github-square"></i></a></li><li><a target="_blank" href="https://twitter.com/willslab" title="Twitter"><i class="fa fa-twitter-square"></i></a></li><li><a target="_blank" href="https://plus.google.com/u/0/101735064507096591711" title="Google+"><i class="fa fa-google-plus-square"></i></a></li><li><a target="_blank" href="http://linkedin.com/in/willklein" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></li><li><a target="_blank" href="http://stackoverflow.com/users/1239485/will-klein" title="Stack Overflow"><i class="fa fa-stack-overflow"></i></a></li></ul></div></div><aside><p>Engineering manager, software developer, and meetup organizer.</p>
-</aside></header><section id="content"><section id="posts" class="article"><h2><i class="fa fa-file-o"></i> Moving to Wintersmith</h2><p><time datetime="Mon Feb 17 2014 00:00:00 GMT+0000 (UTC)">17 Feb 2014</time></p><p>I finally moved <a href="https://github.com/willklein/willkle.in">willkle.in</a> to a proper static site generator: <a href="http://wintersmith.io">Wintersmith</a>. I’ve been testing Wintersmith for a while, and this past week I finally ironed out the details. It took a while to port my HTML into <a href="http://jade-lang.com/">Jade</a> templates and to get the content flowing correctly. I stuck with <a href="http://pages.github.com">GitHub Pages</a> for hosting, and tried <a href="http://wercker.com">Wercker</a> for automated build and deployment. There’s more I plan to do, but here’s the how and why of my progress so far.</p>
-<p>GitHub Pages includes <a href="http://jekyllrb.com/">Jekyll</a> out of the box. This works fine and I used it for <a href="http://hartfordjs.com">HartfordJS.com</a>, but I wanted something more customizable. GitHub Pages restricts <a href="http://jekyllrb.com/docs/plugins/">custom plugins</a> for security reasons, which is a bit limiting. I can still use GitHub Pages for free hosting, as long as I keep my build process offline or elsewhere.</p>
-<p>Being a JavaScript/Node guy, Wintersmith was an excellent place to start. <a href="https://github.com/jnordberg">Johan Nordberg</a> did a terrific job making it <a href="https://github.com/jnordberg/wintersmith/wiki/Plugins">extensible</a>, providing excellent support on GitHub and <a href="http://stackoverflow.com/questions/tagged/wintersmith">Stack Overflow</a>. Wintersmith is actually written in CoffeeScript, though that shouldn’t matter much. I reviewed the source to figure out how things work and found the code very easy to follow. Johan made it relatively easy to extend by providing a <a href="https://github.com/jnordberg/wintersmith-plugin">plugin template</a> and <a href="http://wintersmith.io/docs/">API documentation</a>. There are plenty of template engines supported; I stuck with Jade, the default. Jade has HAML-like syntax, which doesn’t look anything like HTML at first glance. It can honestly be a pain to learn at first, but I’ve enjoyed the “shorthand” style of authoring HTML. Besides plugins, Wintersmith can also be customized by including other Node modules. I included <a href="http://lodash.com">Lo-Dash</a> for util functions and <a href="http://momentjs.com/">Moment.js</a> for date formatting. I could then use those libs directly in my Jade templates.</p>
-<p>The last piece of the puzzle for me was auto-deployment. My desired workflow:</p>
-<ol>
-<li><p>Create a new Markdown file.</p>
-</li>
-<li><p>Push that file to GitHub.</p>
-</li>
-</ol>
-<p>That’s it. I wanted to edit a single file and have that publish without any fuss. I love how GitHub Pages works this way for Jekyll-based sites; for publishing on Wintersmith, this is where Wercker comes in. Wercker bills itself as an “open delivery platform.” What it really does is it lets you write build scripts, hook into GitHub, and auto-build/deploy whenever you push to your repo. I found a very helpful <a href="http://luke.vivier.ca/wintersmith-with-wercker/">blog post</a> explaining step-by-step how to wire up Wintersmith with GitHub Pages. Wercker also <a href="http://blog.wercker.com/2013/07/25/Using-wercker-to-publish-to-GitHub-pages.html">wrote up</a> how to publish anything to Pages. I <em>really</em> like how Wercker can be used for a lot more than this, like continuous integration, or anything automated. It’s free to try while in beta, so check it out.</p>
-<p>This publishing workflow is very much a hacker’s solution. I really enjoyed piecing it together, and it’s highly extensible from here. Up next, I’m planning to rebuild my HTML &amp; CSS on Bootstrap 3. I’m also hoping to build more on Wintersmith, more on that to come.</p>
-<div id="disqus_thread"></div><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></section></section><section id="footer"></section></div><script src="/js/disqus.js"></script><script src="/js/clicky.js"></script><script src="/js/ga.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will Klein</title>
+  <!--if lt IE 9-->
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <link href="/css/main.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=ABeeZee" rel="stylesheet" type="text/css">
+</head>
+
+<body data-spy="scroll" data-target=".subhead" data-offset="50">
+  <div class="container">
+    <header id="overview">
+      <div id="profile">
+        <h1><a id="nameLink" href="/"><img id="profileImg" src="/img/profile.jpg" class="img-rounded">
+Will Klein</a></h1>
+        <div class="subnav">
+          <ul class="nav nav-pills">
+            <li><a target="_blank" href="https://github.com/willklein" title="Github"><i class="fa fa-github-square"></i></a></li>
+            <li><a target="_blank" href="https://twitter.com/willslab" title="Twitter"><i class="fa fa-twitter-square"></i></a></li>
+            <li><a target="_blank" href="https://plus.google.com/u/0/101735064507096591711" title="Google+"><i class="fa fa-google-plus-square"></i></a></li>
+            <li><a target="_blank" href="http://linkedin.com/in/willklein" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></li>
+            <li><a target="_blank" href="http://stackoverflow.com/users/1239485/will-klein" title="Stack Overflow"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <aside>
+        <p>Engineering manager, software developer, and meetup organizer.</p>
+      </aside>
+    </header>
+    <section id="content">
+      <section id="posts" class="article">
+        <h2><i class="fa fa-file-o"></i> Moving to Wintersmith</h2>
+        <p><time datetime="Mon Feb 17 2014 00:00:00 GMT+0000 (UTC)">17 Feb 2014</time></p>
+        <p>I finally moved <a href="https://github.com/willklein/willkle.in">willkle.in</a> to a proper static site generator: <a href="http://wintersmith.io">Wintersmith</a>. I’ve been testing Wintersmith for a while, and this past week I finally ironed
+          out the details. It took a while to port my HTML into <a href="http://jade-lang.com/">Jade</a> templates and to get the content flowing correctly. I stuck with <a href="http://pages.github.com">GitHub Pages</a> for hosting, and tried <a href="http://wercker.com">Wercker</a>          for automated build and deployment. There’s more I plan to do, but here’s the how and why of my progress so far.</p>
+        <p>GitHub Pages includes <a href="http://jekyllrb.com/">Jekyll</a> out of the box. This works fine and I used it for <a href="http://hartfordjs.com">HartfordJS.com</a>, but I wanted something more customizable. GitHub Pages restricts <a href="http://jekyllrb.com/docs/plugins/">custom plugins</a>          for security reasons, which is a bit limiting. I can still use GitHub Pages for free hosting, as long as I keep my build process offline or elsewhere.</p>
+        <p>Being a JavaScript/Node guy, Wintersmith was an excellent place to start. <a href="https://github.com/jnordberg">Johan Nordberg</a> did a terrific job making it <a href="https://github.com/jnordberg/wintersmith/wiki/Plugins">extensible</a>, providing
+          excellent support on GitHub and <a href="http://stackoverflow.com/questions/tagged/wintersmith">Stack Overflow</a>. Wintersmith is actually written in CoffeeScript, though that shouldn’t matter much. I reviewed the source to figure out how things
+          work and found the code very easy to follow. Johan made it relatively easy to extend by providing a <a href="https://github.com/jnordberg/wintersmith-plugin">plugin template</a> and <a href="http://wintersmith.io/docs/">API documentation</a>.
+          There are plenty of template engines supported; I stuck with Jade, the default. Jade has HAML-like syntax, which doesn’t look anything like HTML at first glance. It can honestly be a pain to learn at first, but I’ve enjoyed the “shorthand” style
+          of authoring HTML. Besides plugins, Wintersmith can also be customized by including other Node modules. I included <a href="http://lodash.com">Lo-Dash</a> for util functions and <a href="http://momentjs.com/">Moment.js</a> for date formatting.
+          I could then use those libs directly in my Jade templates.</p>
+        <p>The last piece of the puzzle for me was auto-deployment. My desired workflow:</p>
+        <ol>
+          <li>
+            <p>Create a new Markdown file.</p>
+          </li>
+          <li>
+            <p>Push that file to GitHub.</p>
+          </li>
+        </ol>
+        <p>That’s it. I wanted to edit a single file and have that publish without any fuss. I love how GitHub Pages works this way for Jekyll-based sites; for publishing on Wintersmith, this is where Wercker comes in. Wercker bills itself as an “open delivery
+          platform.” What it really does is it lets you write build scripts, hook into GitHub, and auto-build/deploy whenever you push to your repo. I found a very helpful <a href="http://luke.vivier.ca/wintersmith-with-wercker/">blog post</a> explaining
+          step-by-step how to wire up Wintersmith with GitHub Pages. Wercker also <a href="http://blog.wercker.com/2013/07/25/Using-wercker-to-publish-to-GitHub-pages.html">wrote up</a> how to publish anything to Pages. I <em>really</em> like how Wercker
+          can be used for a lot more than this, like continuous integration, or anything automated. It’s free to try while in beta, so check it out.</p>
+        <p>This publishing workflow is very much a hacker’s solution. I really enjoyed piecing it together, and it’s highly extensible from here. Up next, I’m planning to rebuild my HTML &amp; CSS on Bootstrap 3. I’m also hoping to build more on Wintersmith,
+          more on that to come.</p>
+        <div id="disqus_thread"></div><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></section>
+    </section>
+    <section id="footer"></section>
+  </div>
+  <script src="/js/disqus.js"></script>
+
+  <script type="text/javascript">
+    var clicky_site_ids = clicky_site_ids || [];
+    clicky_site_ids.push(101100740);
+    (function() {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = '//static.getclicky.com/js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s);
+    })();
+
+  </script>
+  <script src="/js/ga.js"></script>
+</body>
+
+</html>
