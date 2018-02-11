@@ -241,6 +241,11 @@ a:focus {
     text-decoration: underline;
 }
 
+span.talkTitle {
+    color: #0088cc;
+    font-weight: bold;
+}
+
 .img-rounded {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
